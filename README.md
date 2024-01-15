@@ -10,9 +10,9 @@ Assurez-vous de satisfaire les conditions suivantes avant d'installer Symfony 7 
 
 1. PHP : Symfony 6 nécessite PHP 8.0. Vous pouvez vérifier votre version de PHP en exécutant la commande suivante dans votre terminal :
 
-```bash
-php --version
-```
+  ```bash
+  php --version
+  ```
 Si vous avez une version antérieure à PHP 8.0, vous devrez mettre à jour PHP.
 
 2. Composer : Symfony utilise Composer pour la gestion des dépendances. Installez Composer en suivant les instructions sur getcomposer.org.
