@@ -72,7 +72,7 @@ Nous verions la suis des commande à executer dans le chapitre de L'orm de Symph
 ## 4 | Commandes utiles
 
 
-1. Entity et base de donnée
+### 1. Entity et base de donnée
 
 Instalation des packages pour un connexion à une base de donnée
 ```bash
@@ -98,14 +98,14 @@ Migration dans la Base de donnée
 php bin/console doctrine:migrations:migrate
 ```
 
-2. Serveur
+### 2. Serveur
 
 Lancement du serveur symfony
 ```bash
 symfony server:start 
 ```
 
-3. Fixture
+### 3. Fixture
 
 Création de jeu de test
 ```bash
