@@ -30,16 +30,11 @@ public function index(UsersRepository $UsersRepository): JsonResponse
     return $this->json($users,200, [], ['groups' => 'getUser']);
 }
 ```
-Le but de la transformation est de renvoyer au client une page Html contenant la liste des utilisateurs
-Lors de l'initialisation du projet symfony en format webapp vous avez pu remarquer l'ajout d'un dossier template :
-base.html.twig se trouvant a l'interieur de celui-ci. Le role de notre controller est de renvoyer le nom du fichier
-twig et également les données nécessaire a la creation du fichier twig.
+Le but de cette transformation est de renvoyer au client une page HTML contenant la liste des utilisateurs. Lors de l'initialisation du projet Symfony au format webapp, vous avez peut-être remarqué l'ajout d'un dossier "templates" avec à l'intérieur le fichier "base.html.twig". Le rôle de notre contrôleur est de renvoyer le nom du fichier Twig ainsi que les données nécessaires à la création du fichier Twig.
 
-Twig est un moteur de templates pour le langage de programmation PHP, utilisé par défaut par le framework Symfony.
-Il a une syntaxe differente à php, et rend la lecture de l'html facile
+Twig est un moteur de templates pour le langage de programmation PHP, utilisé par défaut dans le framework Symfony. Il a une syntaxe différente de PHP, rendant la rédaction d'HTML plus aisée.
 
-La methode render permet de retouner au client une vue html, elle prend en argument le nom du fichier
-twig et les données nécessaire a la creation du fichier twig.
+La méthode render permet de retourner au client une vue HTML. Elle prend en argument le nom du fichier Twig ainsi que les données nécessaires à la création du fichier Twig.
 
 ```php
 #[Route('/users', name: 'app_users')]
