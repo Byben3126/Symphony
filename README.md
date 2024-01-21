@@ -3,7 +3,7 @@
 1. [Prérequis](#1--Prérequis)
 2. [Installation](#2--Installation)
 3. [Partage du projet Symphony](#3--Partage-du-projet-Symphony)
-4. [Les commandes utilies](#4--Commandes-utiles)
+4. [Les commandes utiles](#4--Commandes-utiles)
 
 ## 1 | Prérequis
 
@@ -71,6 +71,9 @@ Nous verions la suis des commande à executer dans le chapitre de L'orm de Symph
 
 ## 4 | Commandes utiles
 
+
+1. Entity et base de donnée
+
 Instalation des packages pour un connexion à une base de donnée
 ```bash
 php bin/console cache:clear
@@ -89,8 +92,25 @@ Creation des fichier sql des entity
 ```bash
 php bin/console make:migration
 ```
+
 Migration dans la Base de donnée
 ```bash
 php bin/console doctrine:migrations:migrate
 ```
 
+2. Serveur
+
+Lancement du serveur symfony
+```bash
+symfony server:start 
+```
+
+3. Fixture
+
+Création de jeu de test
+```bash
+composer require orm-fixtures --dev
+php bin/console make:fixtures
+
+php bin/console doctrine:fixtures:load
+```
