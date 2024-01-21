@@ -3,7 +3,7 @@
 1. [Prérequis](#1--Prérequis)
 2. [Installation](#2--Installation)
 3. [Partage du projet Symphony](#3--Partage-du-projet-Symphony)
-4. [Les commandes utilies](#4--Commandes-utililes)
+4. [Les commandes utilies](#4--Commandes-utiles)
 
 ## 1 | Prérequis
 
