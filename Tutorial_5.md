@@ -50,8 +50,9 @@ public function index(UsersRepository $UsersRepository): JsonResponse
             'users' => $users,
     ]);
 }
-### Cet exemple ne fonctionne pas car nous pouvons pas donner au la methode Render des données sous forme de instance de class
-
-
+### Cet exemple ne fonctionne pas car nous pouvons pas transmettre au la methode Render des données sous forme d'instance d'objet
 ```
+
+Nous devons convertir nos instances d'objets en donnée sous forme de tableau
+
 
