@@ -31,61 +31,27 @@ public function index(UsersRepository $UsersRepository): JsonResponse
 }
 ```
 Le but de la transformation est de renvoyer au client une page Html contenant la liste des utilisateurs
+Lors de l'initialisation du projet symfony en format webapp vous avez pu remarquer l'ajout d'un dossier template :
+base.html.twig se trouvant a l'interieur de celui-ci. Le role de notre controller est de renvoyer le nom du fichier
+twig et également les données nécessaire a la creation du fichier twig.
 
-## 3 | Partage du projet Symphony
+Twig est un moteur de templates pour le langage de programmation PHP, utilisé par défaut par le framework Symfony.
+Il a une syntaxe differente à php, et rend la lecture de l'html facile
 
-L'avantage du frameword synfony et de pouvoir deployer le projet sur un grand nombre de poste de travail en tres peu de temps;
+La methode render permet de retouner au client une vue html, elle prend en argument le nom du fichier
+twig et les données nécessaire a la creation du fichier twig.
 
-```bash
-git clone ...
-cd my-project/
-composer install
-```
-Dans cet exemple nous prenons un projet symphony deja existant et deployer sur un repository git
-Nous verions la suis des commande à executer dans le chapitre de L'orm de Symphony
+```php
+#[Route('/users', name: 'app_users')]
+public function index(UsersRepository $UsersRepository): JsonResponse
+{
+    $users = $UsersRepository->findAll();
+    return $this->render('user/index.html.twig', [
+            'users' => $users,
+    ]);
+}
+### Cet exemple ne fonctionne pas car nous pouvons pas donner au la methode Render des données sous forme de instance de class
 
-## 4 | Commandes utiles
 
-
-### 1. Entity et base de donnée
-
-Instalation des packages pour un connexion à une base de donnée
-```bash
-php bin/console cache:clear
-composer install
-composer require symfony/orm-pack
-composer require --dev symfony/maker-bundle
-symfony console doctrine:database:create
 ```
 
-Creation d'une entity
-```bash
-php bin/console make:entity
-```
-
-Creation des fichier sql des entity
-```bash
-php bin/console make:migration
-```
-
-Migration dans la Base de donnée
-```bash
-php bin/console doctrine:migrations:migrate
-```
-
-### 2. Serveur
-
-Lancement du serveur symfony
-```bash
-symfony server:start 
-```
-
-### 3. Fixture
-
-Création de jeu de test
-```bash
-composer require orm-fixtures --dev
-php bin/console make:fixtures
-
-php bin/console doctrine:fixtures:load
-```
