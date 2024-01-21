@@ -1,5 +1,5 @@
 
-# Transformer en API en Server-Side Rendering
+# Transformer L'API en Server-Side Rendering
 
 1. [Prérequis](#1--Prérequis)
 2. [Server-Side Rendering c'est quoi](#2--Server-Side-Rendering-c'est-quoi)
