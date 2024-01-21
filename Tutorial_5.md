@@ -2,9 +2,9 @@
 # Transformer en API en Server-Side Rendering
 
 1. [Prérequis](#1--Prérequis)
-2. [Installation](#2--Installation)
+2. [Server-Side Rendering c'est quoi](#2--Server-Side-Rendering-c'est-quoi)
 3. [Partage du projet Symphony](#3--Partage-du-projet-Symphony)
-4. [Les commandes utiles](#4--Commandes-utiles)
+4. [Transforamation de notre route /users](#4--Transforamation-de-notre-route-/users)
 
 ## 1 | Prérequis
 1. Il est important d'avoir regardé les tutoriels précédents
@@ -50,9 +50,45 @@ public function index(UsersRepository $UsersRepository): JsonResponse
             'users' => $users,
     ]);
 }
-### Cet exemple ne fonctionne pas car nous pouvons pas transmettre au la methode Render des données sous forme d'instance d'objet
 ```
 
-Nous devons convertir nos instances d'objets en donnée sous forme de tableau
+## 4 | Création du fichier twig
+Nous devons maintenant coder le fichier index.html.twig
 
+```twig
+{# user/index.html.twig #}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+</head>
+<body>
+
+    <h1>User List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.getId() }}</td>
+                    <td>{{ user.getFirstName() }}</td>
+                    <td>{{ user.getEmail() }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+```
+Dans ce code, nous utilisons une boucle Twig ({% for user in users %}) pour itérer à travers la liste des utilisateurs et afficher leurs informations. Les méthodes dans Twig (getId(), getFirstName(), getEmail()) correspond à ceux définis dans notre entité Users.
